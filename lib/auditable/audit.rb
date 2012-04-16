@@ -73,7 +73,7 @@ module Auditable
     end
 
     def relevant_attributes
-      attributes.slice("modifications", "tag", "action", "user").reject {|k,v| v.blank? }
+      attributes.slice("modifications", "action", "user").reject {|k,v| v.blank? }
     end
   end
 end
