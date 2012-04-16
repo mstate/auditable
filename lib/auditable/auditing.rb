@@ -70,7 +70,7 @@ module Auditable
       audit.changed_by = self.changed_by if changed_by
 
       # only save if it's different from before
-      if !audit.same_audited_content?(last_saved_audit)
+      if !audit.same_audited_content?(last_saved_audit, options)
         audit.save
       end
     end

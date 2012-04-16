@@ -72,8 +72,9 @@ module Auditable
       other_audit and relevant_attributes == other_audit.relevant_attributes
     end
 
-    def relevant_attributes
-      attributes.slice("modifications", "tag", "action", "user").reject {|k,v| v.blank? }
+    def relevant_attributes(options = {})
+      options[:relevant_attributes] ||= ["modifications"]
+      attributes.slice(*options[:relevant_attributes]).reject {|k,v| v.blank? }
     end
   end
 end
